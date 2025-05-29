@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site officiel de l'OFPPT Guelmim - Formation professionnelle au Maroc">
+    <title>OFPPT GUELMIM - Formation professionnelle</title>
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary-color: #10b981;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --light-text: #6b7280;
+            --background-light: #f9fafb;
+            --error-color: #ef4444;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header amélioré */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        .menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+}
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+    }
+    nav ul.active {
+        display: flex;
+    }
+}
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero section */
+        .hero-section {
+            position: relative;
+            height: 70vh;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('https://www.ofppt.ma/sites/default/files/home/photo-ofppt.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #e74c3c;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #fff;
+            border-color: #fff;
+        }
+
+        /* Content section */
+        .content-section {
+            padding: 60px 10%;
+            background-color: #fff;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .text-content {
+            flex: 1;
+        }
+
+        .image-content {
+            flex: 1;
+        }
+
+        .content-section h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            color: #3498db;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .content-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Cards section */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: #10b981;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1f2937;
+            margin: 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            align-items: start;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            height: fit-content;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+        }
+
+        /* Specific background images for each card */
+        .card:nth-child(1) .card-image {
+            background: linear-gradient(135deg, rgba(139, 126, 102, 0.8), rgba(101, 91, 74, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23d4b896"/><rect x="50" y="50" width="300" height="180" fill="%23f5f1eb" rx="8"/><rect x="70" y="70" width="100" height="140" fill="%238b7e66"/><rect x="190" y="70" width="100" height="140" fill="%236b9080"/><circle cx="320" cy="100" r="30" fill="%233d3d3d"/></svg>');
+        }
+
+        .card:nth-child(2) .card-image {
+            background: linear-gradient(135deg, rgba(241, 245, 249, 0.9), rgba(203, 213, 225, 0.9)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280"><rect width="400" height="280" fill="%23f1f5f9"/><rect x="30" y="40" width="340" height="200" fill="%23ffffff" rx="8"/><rect x="50" y="60" width="300" height="8" fill="%23e2e8f0"/><rect x="50" y="80" width="250" height="8" fill="%23e2e8f0"/><rect x="50" y="100" width="280" height="8" fill="%23e2e8f0"/><rect x="50" y="120" width="200" height="8" fill="%23e2e8f0"/></svg>');
+        }
+
+        .card:nth-child(3) .card-image {
+            background: linear-gradient(135deg, rgba(75, 85, 99, 0.8), rgba(55, 65, 81, 0.8)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280"><rect width="400" height="280" fill="%234b5563"/><circle cx="80" cy="60" r="20" fill="%23d1d5db"/><circle cx="130" cy="60" r="20" fill="%23f3f4f6"/><circle cx="180" cy="60" r="20" fill="%23e5e7eb"/><circle cx="230" cy="60" r="20" fill="%236b7280"/><circle cx="280" cy="60" r="20" fill="%23d1d5db"/><rect x="50" y="120" width="300" height="120" fill="%23ffffff" rx="8"/></svg>');
+        }
+
+        .card-content {
+            padding: 32px 28px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .arrow-icon {
+            font-size: 24px;
+            color: #6b7280;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .arrow-icon {
+            transform: translateX(6px);
+            color: #10b981;
+        }
+
+        .card-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #6b7280;
+            margin: 0;
+        }
+
+        /* Contact section */
+        .contact-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .form-container {
+            width: 100%;
+        }
+
+        .form-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 14px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            background-color: #ffffff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+        }
+
+        textarea.form-control {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .checkbox-input {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            accent-color: #10b981;
+        }
+
+        .checkbox-label {
+            font-size: 12px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            background-color: #10b981;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            background-color: #059669;
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .contact-info {
+            background-color: #f9fafb;
+            padding: 30px;
+            border-radius: 12px;
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            margin-bottom: 24px;
+        }
+
+        .contact-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .email-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .email-icon {
+            width: 18px;
+            height: 18px;
+            color: #6b7280;
+        }
+
+        .email-link {
+            color: #6b7280;
+            text-decoration: underline;
+            font-size: 14px;
+        }
+
+        .email-link:hover {
+            color: #10b981;
+        }
+
+        .hours-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3px 0;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .day {
+            font-weight: 500;
+        }
+
+        .time {
+            color: #9ca3af;
+        }
+        footer {
+    background-color: #1f2937;
+    color: #fff;
+    text-align: center;
+    padding: 40px;
+    margin-top: 60px;
+            }
+
+
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+            }
+            
+            .section-title {
+                font-size: 40px;
+            }
+            
+            .contact-section {
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero-section {
+                height: 60vh;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                padding: 60px 16px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .card-image {
+                height: 240px;
+            }
+            
+            .card-content {
+                padding: 24px 20px;
+            }
+            
+            .card-title {
+                font-size: 20px;
+            }
+            
+            .card-description {
+                font-size: 15px;
+            }
+            
+            .contact-section {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 16px;
+            }
+            
+            .form-title {
+                font-size: 36px;
+            }
+            
+            .contact-info {
+                padding: 32px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .card-image {
+                height: 200px;
+            }
+            
+            .contact-info {
+                padding: 24px 20px;
+            }
+            
+            .hours-item {
+                font-size: 14px;
+            }
+            
+            .form-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Logo -->
+         <button class="menu-toggle">☰</button>
+        <div class="logo">OFPPT GUELMIM</div>
+        
+        
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Instituts</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a id="contact" href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">OFPPT GUELMIM</h1>
+                <p>La voie de l'avenir</p>
+                <a href="#" class="cta-button">INSTITUTS</a>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="text-content">
+                <h2>YOUR ACADEMIC GUIDE</h2>
+                <h3>Empowering your educational journey</h3>
+                <p>
+                    At OFPPT TAWJIH, we are dedicated to guiding you through your academic journey and helping you unlock your potential. Our platform offers comprehensive information on university orientation and study grants, all designed with a modern interface for an enhanced user experience. Located in MA, we prioritize smooth navigation and interactive elements to ensure you find the resources you need with ease. Join us today to take the next step in your educational future!
+                </p>
+            </div>
+            
+            <div class="image-content">
+                <img src="https://i0.wp.com/asarchitectes.ma/wp-content/uploads/2015/02/2_1-Photo-scaled.jpg" 
+                     alt="Bâtiment de l'OFPPT Guelmim" 
+                     class="content-image">
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-header">
+                <p class="section-subtitle">GUIDANCE AND SCHOLARSHIPS</p>
+                <h1 class="section-title">Explore your academic future with us!</h1>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            ISTA
+                            <span class="arrow-icon">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Receive expert advice to navigate your academic future.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            ISTA NTIC
+                            <span class="arrow-icon">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Unlock opportunities with detailed scholarship insights.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="card-content">
+                        <h3 class="card-title text-center">
+                            ISHT
+                            <span class="arrow-icon">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Discover your ideal career path with personalized insights.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="form-container">
+                <h2 class="form-title">We're here to help you succeed!</h2>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Jane Smith" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="email@website.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone number <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="555-555-5555" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Votre message..."></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" class="checkbox-input" required>
+                        <label for="consent" class="checkbox-label">
+                            I allow this website to store my submission so they can respond to my inquiry. <span class="required">*</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                
+                <div class="email-section">
+                    <svg class="email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <a href="mailto:abdelmajid.elainousi@gmail.com" class="email-link">abdelmajid.elainousi@gmail.com</a>
+                </div>
+
+                <div class="contact-detail">
+                    <h4 class="hours-title">Hours</h4>
+                    <ul class="hours-list">
+                        <li class="hours-item">
+                            <span class="day">Monday</span>
+                            <span class="time">9:00am - 10:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Tuesday</span>
+                            <span class="time">9:00am - 10:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Wednesday</span>
+                            <span class="time">9:00am - 10:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Thursday</span>
+                            <span class="time">9:00am - 10:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Friday</span>
+                            <span class="time">9:00am - 10:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00am - 6:00pm</span>
+                        </li>
+                        <li class="hours-item">
+                            <span class="day">Sunday</span>
+                            <span class="time">9:00am - 12:00pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 OFPPT GUELMIM. Tous droits réservés.</p>
+    </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Récupérer les données du formulaire
+            const formData = new FormData(this);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // Simulation de l'envoi
+            console.log('Données du formulaire:', data);
+            
+            // Afficher un message de confirmation
+            alert('Merci pour votre message ! Nous vous répondrons bientôt.');
+            
+            // Réinitialiser le formulaire
+            this.reset();
+        });
+
+        // Validation en temps réel
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#d1d5db';
+                }
+            });
+        });
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+    document.querySelector('nav ul').classList.toggle('active');
+});
+    </script>
+</body>
+</html>
