@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site officiel de l'OFPPT Guelmim - Formation professionnelle au Maroc">
+    <meta name="keywords" content="OFPPT, Guelmim, formation professionnelle, Maroc, orientation, instituts, bourses">
+    <meta name="author" content="OFPPT GUELMIM">
+    <title>OFPPT GUELMIM - Formation professionnelle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-controls="menu" aria-expanded="false">☰</button>
+        <div class="logo">OFPPT GUELMIM</div>
+        <nav>
+            <ul id="menu" role="menubar">
+                <li><a href="#accueil" role="menuitem">Accueil</a></li>
+                <li><a href="#instituts" role="menuitem">Instituts</a></li>
+                <li><a href="#apropos" role="menuitem">À propos</a></li>
+                <li><a id="contact" href="#contact-section" role="menuitem">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section" id="accueil" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title">OFPPT GUELMIM</h1>
+                <p>La voie de l'avenir</p>
+                <a href="#instituts" class="cta-button">DÉCOUVRIR LES INSTITUTS</a>
+            </div>
+        </section>
+
+        <section class="content-section" id="apropos">
+            <div class="text-content">
+                <h2>L'OFPPT Guelmim </h2>
+                <h3>Office de la Formation Professionnelle et de la Promotion du Travail</h3>
+                <p>
+                    fait partie du réseau de l'Office de la Formation Professionnelle et de la Promotion du Travail (OFPPT) au Maroc. Il propose des formations professionnelles adaptées aux besoins du marché local et national, notamment dans des secteurs porteurs comme la gestion, le tourisme, l'informatique et les métiers techniques.
+                </p>
+            </div>
+            <div class="image-content">
+                <img src="https://i0.wp.com/asarchitectes.ma/wp-content/uploads/2015/02/2_1-Photo-scaled.jpg" 
+                     alt="Bâtiment de l'OFPPT Guelmim" 
+                     class="content-image"
+                     loading="lazy">
+            </div>
+        </section>
+
+        <section class="section" id="instituts">
+            <div class="section-header">
+                <p class="section-subtitle">Instituts</p>
+                <h2 class="section-title">Préparez votre avenir académique avec nous !</h2>
+            </div>
+            <a class="liensPages" href="..\page filliere\ista\filieres_section.html">
+                <div class="cards-grid">
+                <div class="card" tabindex="0">
+                    <div class="card-image card-image-ista"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            ISTA
+                            <span class="arrow-icon" aria-hidden="true">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Conseils personnalisés pour réussir votre orientation académique.
+                        </p>
+                    </div>
+                </div>
+            </a>
+            
+                <a class="liensPages" href="..\page filliere\ista ntic\filieres_section.html">
+                    <div class="card" tabindex="0">
+                    <div class="card-image card-image-ntic"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            ISTA NTIC
+                            <span class="arrow-icon" aria-hidden="true">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Découvrez les opportunités avec nos informations sur les bourses.
+                        </p>
+                    </div>
+                    </div>
+                </a>
+                
+                <a class="liensPages" href="..\page filliere\isht\filieres_section.html">
+                    <div class="card" tabindex="0">
+                    <div class="card-image card-image-isht"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">
+                            ISHT
+                            <span class="arrow-icon" aria-hidden="true">›</span>
+                        </h3>
+                        <p class="card-description">
+                            Trouvez votre voie grâce à notre accompagnement personnalisé.
+                        </p>
+                    </div>
+                    </div>
+                </a>
+                
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact-section">
+            <div class="form-container">
+                <h2 class="form-title">Nous sommes là pour vous accompagner !</h2>
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nom <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom" required autocomplete="name">
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="email@website.com" required autocomplete="email">
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numéro de téléphone <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="06XXXXXXXX" required autocomplete="tel">
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Votre message..."></textarea>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="consent" name="consent" class="checkbox-input" required>
+                        <label for="consent" class="checkbox-label">
+                            J'accepte que ce site stocke mes informations pour répondre à ma demande. <span class="required">*</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">Envoyer</button>
+                    <div id="form-success" class="form-success" aria-live="polite" style="display:none;">
+                        Merci pour votre message ! Nous vous répondrons bientôt.
+                    </div>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Contactez-nous</h3>
+                <div class="email-section">
+                    <svg class="email-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <a href="mailto:abdelmajid.elainousi@gmail.com" class="email-link">abdelmajid.elainousi@gmail.com</a>
+                </div>
+                <div class="contact-detail">
+                    <h4 class="hours-title">Horaires</h4>
+                    <ul class="hours-list">
+                        <li class="hours-item"><span class="day">Lundi</span><span class="time">8h30 - 18h30</span></li>
+                        <li class="hours-item"><span class="day">Mardi</span><span class="time">8h30 - 18h30</span></li>
+                        <li class="hours-item"><span class="day">Mercredi</span><span class="time">8h30 - 18h30</span></li>
+                        <li class="hours-item"><span class="day">Jeudi</span><span class="time">8h30 - 18h30</span></li>
+                        <li class="hours-item"><span class="day">Vendredi</span><span class="time">8h30 - 19h00</span></li>
+                        <li class="hours-item"><span class="day">Samedi</span><span class="time">8h30 - 18h30</span></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <button class="scroll-up-btn" onclick="scrollToTop()">▲</button>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 OFPPT GUELMIM. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
